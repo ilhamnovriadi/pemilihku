@@ -3,6 +3,8 @@ import logo from "./pemilihku-03.png";
 import "./App.css";
 import person from "./img/avatars/avatar.jpg";
 //import Navigation from "./nav"
+import SidebarContent from "./sidebarContent";
+import MainKonten from "./mainKonten"
 
 export default class nav extends Component {
   constructor(props) {
@@ -29,6 +31,7 @@ export default class nav extends Component {
               <img src={logo} width="40" height="40" alt="person"></img>
               <span className="align-middle"> Pemilihku.com</span>
             </a>
+            <SidebarContent />
           </div>
         </nav>
         <div className="main">
@@ -41,6 +44,35 @@ export default class nav extends Component {
             </div>
             <div className="navbar-collapse collapse">
               <ul className="navbar-nav ml-auto"></ul>
+
+              <div
+                className="nav-icon dropdown-toggle"
+                href="#"
+                id="alertsDropdown"
+                data-toggle="dropdown"
+              >
+                <div className="position-relative">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="feather feather-bell-off align-middle"
+                  >
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                    <path d="M18.63 13A17.89 17.89 0 0 1 18 8"></path>
+                    <path d="M6.26 6.26A5.86 5.86 0 0 0 6 8c0 7-3 9-3 9h14"></path>
+                    <path d="M18 8a6 6 0 0 0-9.33-5"></path>
+                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                  </svg>
+                </div>
+              </div>
+
               <div
                 className="nav-link dropdown-toggle d-none d-sm-inline-block"
                 href="#"
@@ -206,6 +238,7 @@ export default class nav extends Component {
                   </div>
                 </div>
               </div>
+            <MainKonten></MainKonten>
             </div>
           </div>
         </div>
