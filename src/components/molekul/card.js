@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import banner from "./img/photos/unsplash-1.jpg";
-import personmini from "./img/avatars/avatar-3.jpg";
+import banner from "../../img/photos/unsplash-1.jpg";
+import personmini from "../../img/avatars/avatar-3.jpg";
 
 export default class card extends Component {
   render(props) {

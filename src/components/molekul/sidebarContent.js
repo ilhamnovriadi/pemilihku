@@ -80,8 +80,8 @@ export default class sidebarContent extends Component {
           </li>
           {/* logout */}
           <li className="sidebar-item">
-            <div
-              href="#logout"
+            <a
+              href="/login"
               className="sidebar-link"
             >
               <svg
@@ -101,7 +101,7 @@ export default class sidebarContent extends Component {
                 <line x1="21" y1="12" x2="9" y2="12"></line>
               </svg>{" "}
               <span className="align-middle">Logout</span>
-            </div>
+            </a>
           </li>
           <div className="sidebar-bottom d-none d-lg-block">
 					<div className="media">
