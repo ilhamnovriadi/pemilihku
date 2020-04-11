@@ -1,10 +1,12 @@
 import React, { Fragment, useState } from "react";
-import axios from "axios";
 import { connect } from "react-redux";
 // import { Link } from 'react-router-dom'
 import { setAlert } from "../action/alert";
+import { register } from "../action/auth";
+import PropTypes from "prop-types";
+import Alert from "../components/atom/Alert";
 
-const Register = (props) => {
+const Register = ({ setAlert, register }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -20,30 +22,32 @@ const Register = (props) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = async (e) => {
-    setTombol({ tombol: !tombol });
     e.preventDefault();
     if (password !== password2) {
-      props.setAlert("password tidak sama", "danger");
+      setAlert("Password tidak sama, periksa lagi ya :)", "danger");
+      setTombol({ tombol: true});
     } else {
-      const newUser = {
-        name,
-        email,
-        password,
-      };
+      register({name, email, password})
+      // const newUser = {
+      //   name,
+      //   email,
+      //   password,
+      // };
 
-      try {
-        const config = {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        };
-        const body = JSON.stringify(newUser);
+      // try {
+      //   const config = {
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //   };
+      //   const body = JSON.stringify(newUser);
 
-        const res = await axios.post("/api/users", body, config);
-        console.log(res.data);
-      } catch (err) {
-        console.error(err.response.data);
-      }
+      //   const res = await axios.post("/api/users", body, config);
+      //   register(res.data.token)
+      //   setAlert("Akun kamu berhasil terdaftar, silahkan login", "success")
+      // } catch (err) {
+      //   setAlert(err.response.data, "danger")
+      // }
     }
   };
 
@@ -68,6 +72,7 @@ const Register = (props) => {
                     <div className="card-body">
                       <div className="m-sm-5">
                         <form onSubmit={(e) => onSubmit(e)}>
+                          <Alert />
                           <div className="form-group">
                             <label>Name</label>
                             <input
@@ -168,4 +173,9 @@ const Register = (props) => {
   );
 };
 
-export default connect(null, { setAlert })(Register);
+Register.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
+};
+
+export default connect(null, { setAlert, register })(Register);

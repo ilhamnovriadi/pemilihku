@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { register } from "../action/auth";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-const Login = () => {
+const Login = ({ register }) => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -31,6 +34,7 @@ const Login = () => {
 
       const res = await axios.post("/api/users/login", body, config);
       console.log(res.data);
+      register(res.data.token);
     } catch (err) {
       console.error(err.response.data);
     }
@@ -125,7 +129,7 @@ const Login = () => {
                             hidden={!tombol}
                             className="spinner-grow text-info"
                             role="status"
-                            style={{marginTop:"-50px"}}
+                            style={{ marginTop: "-50px" }}
                           >
                             <span className="sr-only">Loading...</span>
                           </div>
@@ -153,4 +157,8 @@ const Login = () => {
   );
 };
 
-export default Login;
+Login.propTypes = {
+  register: PropTypes.func.isRequired,
+};
+
+export default connect(null, { register })(Login);
