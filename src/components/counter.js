@@ -7,7 +7,7 @@ const Counter = () => {
     <div>
       <h1>{count}</h1>
       <div
-        class="btn-group btn-group-lg mb-3"
+        className="btn-group btn-group-lg mb-3"
         role="group"
         aria-label="Large button group"
       >
