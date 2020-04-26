@@ -1,7 +1,7 @@
 # 🍥 Pemilihku 🍥
 
-![theme sample](image.png)
-> ✬ 
+![Pemilihku](pemilihku-02.png)
+> ✬ www.pemilihku.com
 
 ## 1. Lorem Ipsum
 Add this line to your workspace settings json.
